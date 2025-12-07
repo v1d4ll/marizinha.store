@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando...</title>
+
+    <!-- PIXEL META -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', 'SEU_ID_DO_PIXEL_AQUI');
+        fbq('track', 'PageView');
+    </script>
+
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=SEU_ID_DO_PIXEL_AQUI&ev=PageView&noscript=1"/>
+    </noscript>
+
+    <script>
+        const linkMobile  = "https://seulink-mobile.com";
+        const linkDesktop = "https://seulink-desktop.com";
+
+        function getUTMs() {
+            const params = new URLSearchParams(window.location.search);
+            return params.toString();
+        }
+
+        function redirecionar() {
+            const utms = getUTMs();
+            const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+
+            let destino = isMobile ? linkMobile : linkDesktop;
+
+            if (utms.length > 0) {
+                destino += (destino.includes("?") ? "&" : "?") + utms;
+            }
+
+            window.location.href = destino;
+        }
+
+        window.onload = redirecionar;
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Redirecionando...</h2>
+    <p>Você será levado automaticamente ao conteúdo.</p>
+</body>
+</html>

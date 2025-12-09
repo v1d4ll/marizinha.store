@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reprodutor de Vídeo</title>
+  <style>
+    html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:#0f1720;color:#e6eef8}
+    .wrap{height:100%;display:flex;align-items:center;justify-content:center;padding:1rem}
+    .card{max-width:900px;width:100%;background:rgba(255,255,255,0.03);border-radius:12px;padding:18px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    h1{margin:0 0 12px 0;font-size:1.25rem}
+    video{width:100%;height:auto;border-radius:8px;display:block;background:#000}
+    .meta{margin-top:10px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:0.95rem}
+    a.btn{background:#0ea5a1;padding:8px 12px;border-radius:8px;color:#052022;text-decoration:none;font-weight:600}
+    .note{font-size:0.85rem;color:#9fb0c3}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Vídeo incorporado</h1>
+      <video id="player" controls playsinline preload="metadata" poster="" tabindex="0">
+        <!--
+          O arquivo de vídeo referenciado abaixo deve estar na mesma pasta que este HTML.
+          Nome do arquivo atual: Vídeo do WhatsApp.mp4
+        -->
+        <source src="Vídeo do WhatsApp.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento <code>video</code>. 
+        <a href="Vídeo do WhatsApp.mp4" download>Baixar o vídeo</a>.
+      </video>
+
+      <div class="meta">
+        <div class="note">Use os controles para reproduzir/pausar. Para tela cheia, clique no ícone de fullscreen.</div>
+        <div>
+          <a class="btn" href="Vídeo do WhatsApp.mp4" download>Baixar vídeo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Pequeno script para melhorar experiência (ex: manter volume alto por padrão)
+    const player = document.getElementById('player');
+    if (player) player.volume = 0.9;
+    // Se quiser autoplay, descomente a linha abaixo (nem todos os navegadores permitirão autoplay sem interação)
+    // player.autoplay = true;
+  </script>
+</body>
+</html>
